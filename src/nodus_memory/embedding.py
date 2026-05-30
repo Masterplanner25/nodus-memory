@@ -3,6 +3,18 @@ from __future__ import annotations
 import abc
 import math
 
+try:
+    import nodus_native_memory_engine as _native_engine
+    _NATIVE = True
+except ImportError:
+    _native_engine = None
+    _NATIVE = False
+
+
+def _using_native_engine() -> bool:
+    """Return True if nodus-native-memory-engine is available."""
+    return _NATIVE
+
 
 class EmbeddingProvider(abc.ABC):
     """Abstract embedding provider.
@@ -40,7 +52,13 @@ class NoOpProvider(EmbeddingProvider):
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
-    """Compute cosine similarity between two vectors using stdlib math only."""
+    """Compute cosine similarity between two vectors.
+
+    Uses the Rust native engine when nodus-native-memory-engine is installed;
+    falls back to pure Python otherwise.
+    """
+    if _NATIVE:
+        return _native_engine.cosine_similarity(a, b)
     dot = sum(x * y for x, y in zip(a, b))
     mag_a = math.sqrt(sum(x * x for x in a))
     mag_b = math.sqrt(sum(x * x for x in b))
