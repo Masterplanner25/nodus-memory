@@ -1,0 +1,30 @@
+// nodus-memory v0.1.0 — persistent, multi-tenant, searchable memory for Nodus agents
+//
+// Usage: call attach_to_runtime(runtime, store) from Python before running scripts
+// that import this module. The nm_* functions are registered as host functions.
+
+let _version = "0.1.0"
+
+fn recall_from(key) {
+  return nm_recall_from(key)
+}
+
+fn share(key, value) {
+  nm_share(key, value)
+}
+
+fn forget(key) {
+  return nm_forget(key)
+}
+
+fn recall_all(tag) {
+  return nm_recall_all(tag)
+}
+
+fn tag(key, tags) {
+  nm_tag(key, tags)
+}
+
+fn link(child, parent) {
+  nm_link(child, parent)
+}
