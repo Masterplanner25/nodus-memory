@@ -51,15 +51,16 @@ Not in scope for the baseline library.
 
 ## DD-3 — Rust Native Scorer (Maturin)
 
-**v0.1 status:** Not implemented. `ScoreTracker.compute_weight()` is pure Python.
+**Status: COMPLETE** — delivered as `nodus-native-memory-engine` v0.1.0
+(`C:\dev\nodus-native-memory-engine`, `github.com/Masterplanner25/nodus-native-memory-engine`).
 
-**v0.2 plan:**
-- Maturin-based Rust extension for vectorized weight computation
-- Enables ranking of large memory sets without numpy overhead
-- Optional: falls back to pure Python if Rust extension not compiled
+`ScoreTracker.compute_weight()` and `cosine_similarity()` in nodus-memory auto-detect
+the native engine and route to Rust when it is installed. The engine also provides
+`batch_compute_weights`, `argsort_by_weight`, `traverse_chain`, `would_create_cycle`,
+`rank_by_similarity`, and `rank_blended`. Pure-Python fallback is always available via
+`is_native()` check.
 
-**Reason for deferral:** Maturin build step adds CI complexity. Rust scorer is a
-performance optimization, not a correctness requirement for v0.1.
+This DD is closed and does not require any further work in nodus-memory v0.2.
 
 ---
 
