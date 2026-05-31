@@ -6,15 +6,20 @@ build-backend = "setuptools.build_meta"
 name = "nodus-memory"
 version = "0.1.0"
 description = "Persistent agent memory: nodes, MAS path addressing, scoring, embedding, and recall"
+authors = [{ name = "Shawn Knight" }]
+license = { text = "MIT" }
+readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
-authors = [{ name = "Masterplanner25" }]
-dependencies = ["nodus-events>=0.1.0"]
+dependencies = []
 
 [project.optional-dependencies]
 pgvector = ["sqlalchemy>=2.0.0", "pgvector>=0.4.0", "numpy>=1.24.0"]
 openai   = ["openai>=2.0.0"]
-test     = ["pytest>=8.0", "pytest-asyncio>=0.21"]
+dev      = ["pytest>=8.0", "pytest-asyncio>=0.21"]
+
+[project.urls]
+Homepage = "https://github.com/Masterplanner25/nodus-memory"
+Repository = "https://github.com/Masterplanner25/nodus-memory"
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -22,3 +27,4 @@ include = ["nodus_memory*"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
+testpaths = ["tests"]
