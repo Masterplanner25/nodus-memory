@@ -12,7 +12,7 @@ embedder work out of the box.
 > implementation is preserved in the git history. The current package is the
 > standalone Tier 2 memory library.
 
-> **Status:** v0.1.0 — prepared, not yet published.
+> **Status:** v0.1.0 — published on [PyPI](https://pypi.org/project/nodus-memory/).
 
 ---
 

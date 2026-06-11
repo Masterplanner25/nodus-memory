@@ -5,11 +5,8 @@ Versioning: [Semantic Versioning](https://semver.org)
 
 ## [Unreleased]
 
-## [0.1.0] — PREPARED, NOT RELEASED
+## [0.1.0] — 2026-06-10
 
-> **Coordinated launch:** nodus-memory v0.1.0 is prepared but not published.
-> Release waits for the three-artifact set (nodus-lang 4.0.0, nodus-mcp 0.1.0,
-> nodus-a2a 0.1.0) to ship first. nodus-memory is a separate, subsequent release.
 
 ### Added
 
